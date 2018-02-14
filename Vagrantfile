@@ -27,13 +27,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # The Zulip development environment runs on 9991 on the guest.
   host_port = 9991
   http_proxy = https_proxy = no_proxy = nil
-  host_ip_addr = "127.0.0.1"
+  #host_ip_addr = "127.0.0.1"
+  host_ip_addr = "0.0.0.0"
 
   config.vm.synced_folder ".", "/vagrant", disabled: true
   if (/darwin/ =~ RUBY_PLATFORM) != nil
     config.vm.synced_folder ".", "/srv/zulip", type: "nfs",
         linux__nfs_options: ['rw']
-    config.vm.network "private_network", type: "dhcp"
+    #config.vm.network "private_network", type: "dhcp"
+    config.vm.network "public_network"
   else
     config.vm.synced_folder ".", "/srv/zulip"
   end

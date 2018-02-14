@@ -20,11 +20,13 @@ if EXTERNAL_HOST is None:
     else:
         # For local development environments, we use localhost by
         # default, via the "zulipdev.com" hostname.
-        EXTERNAL_HOST = 'zulipdev.com:9991'
+        #EXTERNAL_HOST = 'zulipdev.com:9991'
+        EXTERNAL_HOST = 'nst.duckdms.org:9991'
         # Serve the main dev realm at the literal name "localhost",
         # so it works out of the box even when not on the Internet.
         REALM_HOSTS = {
             'zulip': 'localhost:9991'
+            #'zulip': 'nst.duckdns.org:9991'
         }
 ALLOWED_HOSTS = ['*']
 
